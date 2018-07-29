@@ -1,0 +1,192 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 87856 bytes for Chunk::new
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:390), pid=16468, tid=0x0000000000004098
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_111-b14) (build 1.8.0_111-b14)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.111-b14 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000016639800):  JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=16536, stack(0x0000000016a30000,0x0000000016b30000)]
+
+Stack: [0x0000000016a30000,0x0000000016b30000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+
+
+Current CompileTask:
+C2:    738  213       4       oracle.jdbc.driver.SQLStateMapping$Tokenizer::next (334 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000166b1800 JavaThread "Service Thread" daemon [_thread_blocked, id=16544, stack(0x0000000016c30000,0x0000000016d30000)]
+  0x000000001663a000 JavaThread "C1 CompilerThread2" daemon [_thread_blocked, id=16540, stack(0x0000000016b30000,0x0000000016c30000)]
+=>0x0000000016639800 JavaThread "C2 CompilerThread1" daemon [_thread_in_native, id=16536, stack(0x0000000016a30000,0x0000000016b30000)]
+  0x0000000014fd9800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=16532, stack(0x0000000016530000,0x0000000016630000)]
+  0x0000000014fd8800 JavaThread "Attach Listener" daemon [_thread_blocked, id=16528, stack(0x0000000016430000,0x0000000016530000)]
+  0x0000000014f8d800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=16524, stack(0x0000000016330000,0x0000000016430000)]
+  0x0000000014f6a800 JavaThread "Finalizer" daemon [_thread_blocked, id=16520, stack(0x00000000161e0000,0x00000000162e0000)]
+  0x00000000028ff000 JavaThread "Reference Handler" daemon [_thread_blocked, id=16516, stack(0x00000000160e0000,0x00000000161e0000)]
+  0x0000000002810800 JavaThread "main" [_thread_in_vm, id=16492, stack(0x0000000002400000,0x0000000002500000)]
+
+Other Threads:
+  0x0000000014f46800 VMThread [stack: 0x0000000015fe0000,0x00000000160e0000] [id=16512]
+  0x0000000016718000 WatcherThread [stack: 0x0000000016d30000,0x0000000016e30000] [id=16548]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 18944K, used 5283K [0x00000000eb200000, 0x00000000ec700000, 0x0000000100000000)
+  eden space 16384K, 32% used [0x00000000eb200000,0x00000000eb728ed8,0x00000000ec200000)
+  from space 2560K, 0% used [0x00000000ec480000,0x00000000ec480000,0x00000000ec700000)
+  to   space 2560K, 0% used [0x00000000ec200000,0x00000000ec200000,0x00000000ec480000)
+ ParOldGen       total 44032K, used 0K [0x00000000c1600000, 0x00000000c4100000, 0x00000000eb200000)
+  object space 44032K, 0% used [0x00000000c1600000,0x00000000c1600000,0x00000000c4100000)
+ Metaspace       used 6500K, capacity 6576K, committed 6784K, reserved 1056768K
+  class space    used 758K, capacity 784K, committed 896K, reserved 1048576K
+
+Card table byte_map: [0x0000000011d40000,0x0000000011f40000] byte_map_base: 0x0000000011735000
+
+Marking Bits: (ParMarkBitMap*) 0x000000006a0ba6c0
+ Begin Bits: [0x0000000012490000, 0x0000000013438000)
+ End Bits:   [0x0000000013438000, 0x00000000143e0000)
+
+Polling page: 0x0000000000cc0000
+
+CodeCache: size=245760Kb used=1632Kb max_used=1632Kb free=244127Kb
+ bounds [0x0000000002980000, 0x0000000002bf0000, 0x0000000011980000]
+ total_blobs=563 nmethods=279 adapters=197
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 0.276 Thread 0x000000001663a000  275       3       java.lang.ref.WeakReference::<init> (7 bytes)
+Event: 0.276 Thread 0x000000001663a000 nmethod 275 0x0000000002b16550 code [0x0000000002b166c0, 0x0000000002b16970]
+Event: 0.276 Thread 0x000000001663a000  276       3       java.lang.ClassLoader::checkName (43 bytes)
+Event: 0.277 Thread 0x000000001663a000 nmethod 276 0x0000000002b16a50 code [0x0000000002b16c00, 0x0000000002b173b8]
+Event: 0.277 Thread 0x000000001663a000  277       3       sun.misc.VM::allowArraySyntax (4 bytes)
+Event: 0.277 Thread 0x000000001663a000 nmethod 277 0x0000000002b10cd0 code [0x0000000002b10e20, 0x0000000002b10f70]
+Event: 0.277 Thread 0x000000001663a000  278       3       sun.nio.cs.UTF_8$Encoder::encode (359 bytes)
+Event: 0.278 Thread 0x000000001663a000 nmethod 278 0x0000000002b17650 code [0x0000000002b17840, 0x0000000002b18358]
+Event: 0.278 Thread 0x000000001663a000  279       3       java.util.zip.Inflater::ensureOpen (47 bytes)
+Event: 0.278 Thread 0x000000001663a000 nmethod 279 0x0000000002b189d0 code [0x0000000002b18b40, 0x0000000002b18e28]
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (1 events):
+Event: 0.223 Thread 0x0000000002810800 Uncommon trap: reason=unstable_if action=reinterpret pc=0x0000000002aecf64 method=java.io.BufferedReader.read()I @ 19
+
+Internal exceptions (10 events):
+Event: 0.182 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3b8fa8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.182 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3b9d20) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.182 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3bacd8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.183 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3bc568) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.190 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3e2970) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.190 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3e3bd8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.191 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb3e54c0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.196 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb40b5f8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.204 Thread 0x0000000002810800 Exception <a 'java/lang/ArrayIndexOutOfBoundsException'> (0x00000000eb41aaf0) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\runtime\sharedRuntime.cpp, line 605]
+Event: 0.247 Thread 0x0000000002810800 Exception <a 'java/lang/NoClassDefFoundError': oracle/security/pki/OraclePKIProvider> (0x00000000eb5646b8) thrown at [C:\re\workspace\8-2-build-windows-amd64-cygwin\jdk8u111\7883\hotspot\src\share\vm\classfile\systemDictionary.cpp, line 199]
+
+Events (10 events):
+Event: 0.278 loading class oracle/jdbc/driver/T4CInputStream
+Event: 0.278 loading class oracle/jdbc/driver/T4CInputStream done
+Event: 0.278 loading class oracle/jdbc/driver/OracleCallableStatement
+Event: 0.278 loading class oracle/jdbc/driver/OracleCallableStatement done
+Event: 0.279 loading class oracle/jdbc/internal/OracleCallableStatement
+Event: 0.279 loading class oracle/jdbc/internal/OracleCallableStatement done
+Event: 0.279 loading class oracle/jdbc/OracleCallableStatement
+Event: 0.279 loading class oracle/jdbc/OracleCallableStatement done
+Event: 0.279 loading class java/sql/CallableStatement
+Event: 0.280 loading class java/sql/CallableStatement done
+
+
+Dynamic libraries:
+0x00007ff647fb0000 - 0x00007ff647fe7000 	E:\JAVA2\bin\javaw.exe
+0x00007ff8b9740000 - 0x00007ff8b98ed000 	C:\windows\SYSTEM32\ntdll.dll
+0x00007ff8b9460000 - 0x00007ff8b959e000 	C:\windows\system32\KERNEL32.DLL
+0x00007ff8b6ca0000 - 0x00007ff8b6db5000 	C:\windows\system32\KERNELBASE.dll
+0x00007ff8b5420000 - 0x00007ff8b54ae000 	C:\windows\system32\apphelp.dll
+0x00007ff8a7940000 - 0x00007ff8a7993000 	C:\windows\AppPatch\AppPatch64\AcGenral.DLL
+0x00007ff8b9690000 - 0x00007ff8b973a000 	C:\windows\system32\msvcrt.dll
+0x00007ff8b6650000 - 0x00007ff8b667e000 	C:\windows\SYSTEM32\SspiCli.dll
+0x00007ff8b90e0000 - 0x00007ff8b9134000 	C:\windows\system32\SHLWAPI.dll
+0x00007ff8b7150000 - 0x00007ff8b72c7000 	C:\windows\system32\USER32.dll
+0x00007ff8b6fb0000 - 0x00007ff8b7144000 	C:\windows\system32\ole32.dll
+0x00007ff8b72d0000 - 0x00007ff8b87f9000 	C:\windows\system32\SHELL32.dll
+0x00007ff8b5e20000 - 0x00007ff8b5e41000 	C:\windows\SYSTEM32\USERENV.dll
+0x00007ff8b8ee0000 - 0x00007ff8b8f8a000 	C:\windows\system32\ADVAPI32.dll
+0x00007ff8a8340000 - 0x00007ff8a835e000 	C:\windows\SYSTEM32\MPR.dll
+0x00007ff8b8f90000 - 0x00007ff8b90d1000 	C:\windows\system32\RPCRT4.dll
+0x00007ff8b8db0000 - 0x00007ff8b8e09000 	C:\windows\SYSTEM32\sechost.dll
+0x00007ff8b8a40000 - 0x00007ff8b8c52000 	C:\windows\SYSTEM32\combase.dll
+0x00007ff8b8c60000 - 0x00007ff8b8dab000 	C:\windows\system32\GDI32.dll
+0x00007ff8b6890000 - 0x00007ff8b68a5000 	C:\windows\SYSTEM32\profapi.dll
+0x00007ff8b4df0000 - 0x00007ff8b4ea2000 	C:\windows\SYSTEM32\SHCORE.dll
+0x00007ff8b6f70000 - 0x00007ff8b6fa6000 	C:\windows\system32\IMM32.DLL
+0x00007ff8b9280000 - 0x00007ff8b93d1000 	C:\windows\system32\MSCTF.dll
+0x00007ff8b44e0000 - 0x00007ff8b475b000 	C:\windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.9600.17415_none_6240486fecbd8abb\COMCTL32.dll
+0x0000000069600000 - 0x00000000696d2000 	E:\JAVA2\bin\msvcr100.dll
+0x00000000698a0000 - 0x000000006a13a000 	E:\JAVA2\bin\server\jvm.dll
+0x00007ff8ad9f0000 - 0x00007ff8ad9f9000 	C:\windows\SYSTEM32\WSOCK32.dll
+0x00007ff8ae9e0000 - 0x00007ff8aea02000 	C:\windows\SYSTEM32\WINMM.dll
+0x00007ff8ad910000 - 0x00007ff8ad91a000 	C:\windows\SYSTEM32\VERSION.dll
+0x00007ff8b95b0000 - 0x00007ff8b95b7000 	C:\windows\system32\PSAPI.DLL
+0x00007ff8b93e0000 - 0x00007ff8b943a000 	C:\windows\system32\WS2_32.dll
+0x00007ff8ae9b0000 - 0x00007ff8ae9da000 	C:\windows\SYSTEM32\WINMMBASE.dll
+0x00007ff8b95a0000 - 0x00007ff8b95a9000 	C:\windows\system32\NSI.dll
+0x00007ff8b6c50000 - 0x00007ff8b6c9f000 	C:\windows\SYSTEM32\cfgmgr32.dll
+0x00007ff8b56a0000 - 0x00007ff8b56c8000 	C:\windows\SYSTEM32\DEVOBJ.dll
+0x00000000697b0000 - 0x00000000697bf000 	E:\JAVA2\bin\verify.dll
+0x0000000069780000 - 0x00000000697a9000 	E:\JAVA2\bin\java.dll
+0x0000000069760000 - 0x0000000069776000 	E:\JAVA2\bin\zip.dll
+0x000000006a3d0000 - 0x000000006a3dd000 	E:\JAVA2\bin\management.dll
+0x0000000069740000 - 0x000000006975a000 	E:\JAVA2\bin\net.dll
+0x00007ff8b6090000 - 0x00007ff8b60e9000 	C:\windows\system32\mswsock.dll
+0x0000000069720000 - 0x0000000069731000 	E:\JAVA2\bin\nio.dll
+
+VM Arguments:
+jvm_args: -Dfile.encoding=GBK 
+java_command: pac.PassengerWindows
+java_class_path (initial): F:\Java\airplane\bin;F:\Java\airplane\help\ojdbc7.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 8.1 , 64 bit Build 9600 (6.3.9600.17415)
+
+CPU:total 4 (2 cores per cpu, 2 threads per core) family 6 model 61 stepping 4, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, 3dnowpref, lzcnt, ht, tsc, tscinvbit, bmi1, bmi2, adx
+
+Memory: 4k page, physical 4097964k(452516k free), swap 16680876k(4808k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.111-b14) for windows-amd64 JRE (1.8.0_111-b14), built on Sep 22 2016 19:24:05 by "java_re" with MS VC++ 10.0 (VS2010)
+
+time: Tue Apr 10 19:52:10 2018
+elapsed time: 0 seconds (0d 0h 0m 0s)
+
